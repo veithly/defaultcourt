@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "defaultcourt",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-05-29",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "defaultcourt"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "DEFAULTCOURT_CASES",
+      "id": "685435276098468a9c81bf421727b5a1"
+    }
+  ],
+  "vars": {
+    "PORTALDOT_RPC_URL": "wss://mainnet.portaldot.io",
+    "DEFAULTCOURT_USE_CLOUDFLARE_KV": "1",
+    "DEFAULTCOURT_DATA_DIR": ".defaultcourt-data"
+  }
+}

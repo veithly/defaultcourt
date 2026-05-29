@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DefaultCourt mono">
+  <rect x="10" y="14" width="44" height="40" fill="none" stroke="currentColor" stroke-width="4"/>
+  <path d="M14 22h36M22 32h20M22 42h13" stroke="currentColor" stroke-width="4"/>
+</svg>
+

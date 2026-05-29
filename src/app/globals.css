@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #10130f;
+  --paper: #f5efe1;
+  --muted: #b9b199;
+  --line: rgba(245, 239, 225, 0.18);
+  --danger: #f06a55;
+  --success: #78a86b;
+  --gold: #d7b56d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(245, 239, 225, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 239, 225, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 82% 8%, rgba(215, 181, 109, 0.18), transparent 32rem),
+    var(--ink);
+  background-size: 32px 32px, 32px 32px, auto, auto;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.shell {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto;
+}
+
+.news-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: rgba(16, 19, 15, 0.78);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+}
+
+.sharp-button {
+  min-height: 44px;
+  border: 1px solid rgba(245, 239, 225, 0.28);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.72rem 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.sharp-button:hover {
+  transform: translateY(-1px);
+  background: #fff8e8;
+}
+
+.sharp-button.secondary {
+  background: transparent;
+  color: var(--paper);
+}
+
+.sharp-button.danger {
+  background: #ad2d22;
+  border-color: #ad2d22;
+  color: white;
+}
+
+.sharp-button.success {
+  background: var(--success);
+  border-color: var(--success);
+  color: #071006;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.state-band {
+  border-left: 6px solid var(--gold);
+}
+
+.state-band.danger {
+  border-left-color: var(--danger);
+}
+
+.state-band.success {
+  border-left-color: var(--success);
+}
+
+@media (max-width: 720px) {
+  .shell {
+    width: min(100vw - 24px, 440px);
+  }
+}
