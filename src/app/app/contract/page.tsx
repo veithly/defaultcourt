@@ -2,12 +2,15 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { Nav } from "@/components/nav";
 import { ChainStatusRail } from "@/components/chain-status";
+import { PortaldotWalletContract } from "@/components/portaldot-wallet-contract";
+import { getContractReadiness } from "@/lib/portaldot-contract";
 import { sendTransactionPlan } from "@/lib/portaldot";
 
 export const dynamic = "force-dynamic";
 
 export default async function ContractPage() {
   const plan = sendTransactionPlan();
+  const readiness = await getContractReadiness();
   let source = "Contract source will appear after implementation.";
   try {
     source = await readFile(path.join(process.cwd(), "contracts", "default_court", "lib.rs"), "utf8");
@@ -18,6 +21,7 @@ export default async function ContractPage() {
       <section className="shell grid gap-5 pb-12 lg:grid-cols-[0.75fr_1.25fr]">
         <div className="grid gap-5">
           <ChainStatusRail />
+          <PortaldotWalletContract initialReadiness={readiness} />
           <div className="panel p-5">
             <div className="news-label">Write readiness</div>
             <h1 className="mt-3 text-3xl font-black">{plan.readiness ? "Funded signer configured" : "Waiting for funded mnemonic"}</h1>

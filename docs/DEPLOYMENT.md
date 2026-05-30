@@ -19,6 +19,7 @@ The default read-only RPC endpoint is configured in code and `wrangler.jsonc`. C
 | `PORTALDOT_RPC_URL` | Yes | Portaldot RPC, defaults to `wss://mainnet.portaldot.io`. |
 | `PORTALDOT_MNEMONIC` | Only for writes | Funded throwaway mnemonic for real contract deploy/call. |
 | `PORTALDOT_CONTRACT_ADDRESS` | After deploy | Existing DefaultCourt contract address. |
+| `PORTALDOT_CONTRACT_METADATA_PATH` | After build | Compiled ink! metadata used by browser-wallet and server-signer contract calls. |
 | `DEFAULTCOURT_USE_CLOUDFLARE_KV` | Production | Set to `1` so route handlers use the `DEFAULTCOURT_CASES` KV binding. |
 | `DEFAULTCOURT_DATA_DIR` | Local fallback | Local JSON ledger directory for development and tests. |
 
@@ -82,6 +83,7 @@ The deployment is not allowed to claim a Portaldot contract write until these st
 
 1. `PORTALDOT_MNEMONIC` is funded with POT.
 2. The ink! contract is deployed from `contracts/default_court/lib.rs`.
-3. `PORTALDOT_CONTRACT_ADDRESS` is set from the real deployment output.
-4. A recovery-room write is submitted through the Portaldot SDK.
-5. The receipt page and submission copy include the real address and proof.
+3. `contracts/default_court` is built with `cargo-contract` so `target/ink/default_court.json` exists.
+4. `PORTALDOT_CONTRACT_ADDRESS` is set from the real deployment output.
+5. A recovery-room write is submitted through the browser wallet or funded server signer.
+6. The receipt page and submission copy include the real address and proof.

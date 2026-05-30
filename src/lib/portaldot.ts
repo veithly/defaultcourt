@@ -90,7 +90,7 @@ export async function getPortaldotStatus(): Promise<ChainStatus> {
 
 export function sendTransactionPlan() {
   return {
-    method: "Contracts.call through Portaldot Python SDK",
+    method: "Browser wallet ContractPromise call or server signer Contracts.call",
     signer: "PORTALDOT_MNEMONIC",
     readiness: Boolean(process.env.PORTALDOT_MNEMONIC),
     contractAddress: process.env.PORTALDOT_CONTRACT_ADDRESS || null

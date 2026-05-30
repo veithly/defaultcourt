@@ -10,10 +10,10 @@ export function shortHash(value: string | null) {
 
 export function dateTime(value: string) {
   return new Intl.DateTimeFormat("en-US", {
+    timeZone: "UTC",
     month: "short",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit"
   }).format(new Date(value));
 }
-

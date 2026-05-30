@@ -175,7 +175,7 @@ export async function advanceCase(id: string, action: "breach" | "evidence" | "v
       `Borrower: ${next.borrower}`,
       `Evidence items: ${next.evidence.length}`,
       `Approvals: ${next.votes.filter((vote) => vote.decision === "approve").length}/3`,
-      "Portaldot write: waiting for funded PORTALDOT_MNEMONIC"
+      "Portaldot write: ready for the wallet + contract desk"
     ].join("\\n");
     next = {
       ...next,
@@ -183,7 +183,7 @@ export async function advanceCase(id: string, action: "breach" | "evidence" | "v
       receiptText: receipt,
       timeline: [
         ...next.timeline,
-        event("Recovery resolution closed", "Guardian quorum approved the recovery plan and prepared a Portaldot contract call.", "Credit operator")
+        event("Recovery resolution closed", "Guardian quorum approved the recovery plan. The wallet + contract desk can now submit the Portaldot contract call.", "Credit operator")
       ]
     };
   }

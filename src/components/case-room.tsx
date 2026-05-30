@@ -94,8 +94,8 @@ export function CaseRoom({ initialCase }: Props) {
           </div>
           <div className="border border-[var(--line)] p-4">
             <div className="news-label">Portaldot receipt boundary</div>
-            <p className="mt-3 text-sm text-[var(--muted)]">The write path waits for a funded <code>PORTALDOT_MNEMONIC</code>. No fabricated hash is shown.</p>
-            <Link className="focus-ring mt-4 inline-flex min-h-11 items-center text-sm font-bold text-[var(--gold)] underline" href="/app/contract">Inspect contract proof</Link>
+            <p className="mt-3 text-sm text-[var(--muted)]">Connect a Polkadot wallet or use the funded server signer on the contract desk. A real contract write requires compiled ink! metadata, a deployed contract address, and POT.</p>
+            <Link className="focus-ring mt-4 inline-flex min-h-11 items-center text-sm font-bold text-[var(--gold)] underline" href="/app/contract">Open wallet + contract desk</Link>
           </div>
         </div>
         <div className="mt-5 grid gap-2 sm:grid-cols-4">
